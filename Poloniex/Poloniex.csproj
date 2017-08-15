@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Authors>Christopher.Haws</Authors>
+    <Company>Christopher.Haws</Company>
+    <Description>A .NET implementation for the Poloniex API for exchanging cryptocurrency.</Description>
+    <PackageLicenseUrl>https://github.com/ChristopherHaws/poloniex-dotnet/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/ChristopherHaws/poloniex-dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ChristopherHaws/poloniex-dotnet.git</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>Poloniex Crypto Currency CoinBase BitCoin Ethereum LiteCoin AltCoin Exchange</PackageTags>
+  </PropertyGroup>
+    
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+</Project>
