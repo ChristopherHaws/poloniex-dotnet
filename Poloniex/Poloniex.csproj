@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.4</TargetFramework>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Authors>Christopher.Haws</Authors>
     <Company>Christopher.Haws</Company>
     <Description>A .NET implementation for the Poloniex API for exchanging cryptocurrency.</Description>
@@ -14,6 +13,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Year>$([System.DateTime]::Now.ToString(yy))</Year>
     <DayOfYear>$([System.DateTime]::Now.DayOfYear.ToString(000))</DayOfYear>
     <VersionPrefix>1.0.0</VersionPrefix>
