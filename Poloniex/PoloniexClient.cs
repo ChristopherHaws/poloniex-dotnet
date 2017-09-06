@@ -19,7 +19,7 @@ namespace Poloniex
 			this.secret = secret;
 		}
 
-		public async Task<T> SendRequestAsync<T>(PoloniexRequest request)
+		public async Task<T> SendRequestAsync<T>(PoloniexRequest request, Func<String, T> customDeserializer = null)
 		{
 			using (var client = new HttpClient())
 			{
@@ -37,7 +37,9 @@ namespace Poloniex
 					throw new PoloniexException(error.Message);
 				}
 
-				return JsonConvert.DeserializeObject<T>(content);
+				return (customDeserializer != null)
+					? customDeserializer.Invoke(content)
+					: JsonConvert.DeserializeObject<T>(content);
 			}
 		}
 

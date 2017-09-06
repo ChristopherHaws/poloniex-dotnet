@@ -26,6 +26,7 @@ namespace Poloniex
 
 		public class CompleteBalance
 		{
+			[JsonIgnore]
 			public String Symbol { get; set; }
 
 			[JsonProperty("available")]
