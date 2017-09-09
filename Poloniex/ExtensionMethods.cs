@@ -31,6 +31,7 @@ namespace Poloniex
 			var array = (
 				from key in nvc.AllKeys
 				from value in nvc.GetValues(key)
+				where value != null
 				//FIXME: I didnt want to depend on Microsoft.AspNet.WebUtilities to get WebUtility.UrlEncode since this should be internal anyways.
 				//select String.Format("{0}={1}", HttpUtility.UrlEncode(key), HttpUtility.UrlEncode(value))
 				select String.Format("{0}={1}", key, value)
@@ -45,7 +46,13 @@ namespace Poloniex
 			{
 				foreach (var key in values.AllKeys)
 				{
-					yield return new KeyValuePair<String, String>(key, values[key]);
+					var value = values[key];
+					if (value == null)
+					{
+						continue;
+					}
+
+					yield return new KeyValuePair<String, String>(key, value);
 				}
 			}
 
