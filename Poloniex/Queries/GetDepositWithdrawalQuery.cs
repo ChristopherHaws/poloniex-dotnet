@@ -8,7 +8,7 @@ namespace Poloniex.Queries
 {
 	public static class GetDepositWithdrawalQuery
     {
-		public static async Task<IList<DepositWithdrawal>> GetDepositWithdrawalQueryAsync(this PoloniexClient clien, DateTime? start = null, DateTime? end = null)
+		public static async Task<IList<DepositWithdrawal>> GetDepositWithdrawalAsync(this PoloniexClient clien, DateTime? start = null, DateTime? end = null)
 		{
 			var response = await clien.SendRequestAsync<Dictionary<String, DepositWithdrawal[]>>(new PoloniexRequest
 			{
