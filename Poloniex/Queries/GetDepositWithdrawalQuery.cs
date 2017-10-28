@@ -56,7 +56,13 @@ namespace Poloniex.Queries
 
 			[JsonProperty("fee")]
 			public Decimal Fees { get; set; }
-			
+
+			[JsonProperty("status")]
+			public String Status { get; set; }
+
+			[JsonProperty("address")]
+			public String Address { get; set; }
+
 		}
 	}
 }
