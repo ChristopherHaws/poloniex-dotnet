@@ -6,7 +6,7 @@ namespace Poloniex
 {
 	public static class CancelCommand
 	{
-		public static async Task<OrderCancellationResponse> CancelOrder(this PoloniexClient client, String orderNumber)
+		public static async Task<OrderCancellationResponse> CancelOrderAsync(this PoloniexClient client, String orderNumber)
 		{
 			return await client.SendRequestAsync<OrderCancellationResponse>(new PoloniexRequest
 			{

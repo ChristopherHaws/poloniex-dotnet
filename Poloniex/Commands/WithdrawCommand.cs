@@ -16,7 +16,7 @@ namespace Poloniex
 		/// <param name="address">Destination address</param>
 		/// <param name="paymentId">For XMR withdrawals, you may optionally specify "paymentId"</param>
 		/// <returns>Withdrawal response</returns>
-		public static async Task<WithdrawResponse> WidthdrawCommand(this PoloniexClient client, String currency, Decimal amount, String address, String paymentId)
+		public static async Task<WithdrawResponse> WidthdrawCommandAsync(this PoloniexClient client, String currency, Decimal amount, String address, String paymentId)
 		{
 
 			var request = new PoloniexRequest
@@ -48,9 +48,9 @@ namespace Poloniex
 		/// <param name="amount">Amount to be withdrawn</param>
 		/// <param name="address">Destination address</param> 
 		/// <returns>Withdrawal response</returns>
-		public static async Task<WithdrawResponse> WidthdrawCommand(this PoloniexClient client, String currency, Decimal amount, String address)
+		public static async Task<WithdrawResponse> WidthdrawCommandAsync(this PoloniexClient client, String currency, Decimal amount, String address)
 		{
-			return await WidthdrawCommand(client, currency, amount, address, null).ConfigureAwait(false);
+			return await WidthdrawCommandAsync(client, currency, amount, address, null).ConfigureAwait(false);
 		}
 	}
 
