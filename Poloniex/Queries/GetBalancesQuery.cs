@@ -21,14 +21,7 @@ namespace Poloniex
 				Symbol = x.Key,
 				Available = x.Value
 			}).ToList();
-		}
+		} 
 		
-		public class AvailableBalance
-		{
-			public String Symbol { get; set; }
-
-			[JsonProperty("available")]
-			public Decimal Available { get; set; }
-		}
 	}
 }

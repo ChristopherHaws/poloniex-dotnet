@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Globalization;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
 namespace Poloniex
 {
@@ -52,12 +51,5 @@ namespace Poloniex
 		{
 			return await WidthdrawCommandAsync(client, currency, amount, address, null).ConfigureAwait(false);
 		}
-	}
-
-
-	public class WithdrawResponse
-	{
-		[JsonProperty("response")]
-		public string Response { get; set; }
 	}
 }

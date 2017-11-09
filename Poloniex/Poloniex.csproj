@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.4</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Christopher.Haws</Authors>
     <Company>Christopher.Haws</Company>
     <Description>A .NET implementation for the Poloniex API for exchanging cryptocurrency.</Description>
@@ -10,6 +10,7 @@
     <RepositoryUrl>https://github.com/ChristopherHaws/poloniex-dotnet.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>Poloniex Crypto Currency CoinBase BitCoin Ethereum LiteCoin AltCoin Exchange</PackageTags>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
