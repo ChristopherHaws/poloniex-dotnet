@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using Newtonsoft.Json;
 
 namespace Poloniex 
@@ -12,10 +14,11 @@ namespace Poloniex
 		public List<OrderBookEntry> Bids { get; set; }
 
 	    [JsonProperty("isFrozen")]
-	    public long IsFrozen { get; set; }
+	    [JsonConverter(typeof(BooleanConverter))]
+		public Boolean IsFrozen { get; set; }
 
 	    [JsonProperty("seq")]
-	    public long Sequence { get; set; }
+	    public Int64 Sequence { get; set; }
 	}
 
 	public class OrderBookEntry
