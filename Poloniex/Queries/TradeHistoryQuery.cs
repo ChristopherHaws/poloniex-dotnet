@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -12,23 +13,18 @@ namespace Poloniex.Queries
 		{
 			Dictionary<String, Trade[]> CustomDeserializer(String value)
 			{
-				if (value == "[]")
-				{
-					return new Dictionary<String, Trade[]>();
-				}
-
-				return JsonConvert.DeserializeObject<Dictionary<String, Trade[]>>(value);
+				return value == "[]" ? new Dictionary<String, Trade[]>() : JsonConvert.DeserializeObject<Dictionary<String, Trade[]>>(value);
 			}
 
-			var response = await client.SendRequestAsync<Dictionary<String, Trade[]>>(new PoloniexRequest
+			var response = await client.SendRequestAsync(new PoloniexRequest
 			{
 				Api = PoloniexApi.Trading,
 				Command = "returnTradeHistory",
 				Parameters =
 				{
 					{"currencyPair", "all"},
-					{"start", start?.ToUnixTimestamp().ToString()},
-					{"end", end?.ToUnixTimestamp().ToString()},
+					{"start", start?.ToUnixTimestamp().ToString(CultureInfo.InvariantCulture)},
+					{"end", end?.ToUnixTimestamp().ToString(CultureInfo.InvariantCulture)},
 					{"limit", limit?.ToString()}
 				}
 			}, CustomDeserializer);
@@ -53,8 +49,8 @@ namespace Poloniex.Queries
 				Parameters =
 				{
 					{"currencyPair", currencyPair},
-					{"start", start?.ToUnixTimestamp().ToString()},
-					{"end", end?.ToUnixTimestamp().ToString()},
+					{"start", start?.ToUnixTimestamp().ToString(CultureInfo.InvariantCulture)},
+					{"end", end?.ToUnixTimestamp().ToString(CultureInfo.InvariantCulture)},
 					{"limit", limit?.ToString()}
 				}
 			});
@@ -67,40 +63,6 @@ namespace Poloniex.Queries
 			return trades;
 		}
 
-		public class Trade
-		{
-			[JsonIgnore]
-			public String CurrencyPair { get; set; }
-
-			[JsonProperty("globalTradeID")]
-			public Int64 GlobalTradeId { get; set; }
-
-			[JsonProperty("tradeID")]
-			public Int64 TradeId { get; set; }
-
-			[JsonProperty("orderNumber")]
-			public Int64 OrderNumber { get; set; }
-
-			[JsonProperty("date")]
-			public DateTime Date { get; set; }
-
-			[JsonProperty("type")]
-			public String Type { get; set; }
-
-			[JsonProperty("amount")]
-			public Decimal Amount { get; set; }
-
-			[JsonProperty("fee")]
-			public Decimal Fees { get; set; }
-
-			[JsonProperty("rate")]
-			public Decimal Rate { get; set; }
-
-			[JsonProperty("total")]
-			public Decimal Total { get; set; }
-
-			[JsonProperty("category")]
-			public String Category { get; set; }
-		}
+	
 	}
 }

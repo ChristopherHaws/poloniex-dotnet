@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Globalization;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
 namespace Poloniex
 {
@@ -16,7 +15,7 @@ namespace Poloniex
 		/// <param name="address">Destination address</param>
 		/// <param name="paymentId">For XMR withdrawals, you may optionally specify "paymentId"</param>
 		/// <returns>Withdrawal response</returns>
-		public static async Task<WithdrawResponse> WidthdrawCommandAsync(this PoloniexClient client, String currency, Decimal amount, String address, String paymentId)
+		public static async Task<WithdrawResponse> WidthdrawAsync(this PoloniexClient client, String currency, Decimal amount, String address, String paymentId)
 		{
 
 			var request = new PoloniexRequest
@@ -48,16 +47,9 @@ namespace Poloniex
 		/// <param name="amount">Amount to be withdrawn</param>
 		/// <param name="address">Destination address</param> 
 		/// <returns>Withdrawal response</returns>
-		public static async Task<WithdrawResponse> WidthdrawCommandAsync(this PoloniexClient client, String currency, Decimal amount, String address)
+		public static async Task<WithdrawResponse> WidthdrawAsync(this PoloniexClient client, String currency, Decimal amount, String address)
 		{
-			return await WidthdrawCommandAsync(client, currency, amount, address, null).ConfigureAwait(false);
+			return await WidthdrawAsync(client, currency, amount, address, null).ConfigureAwait(false);
 		}
-	}
-
-
-	public class WithdrawResponse
-	{
-		[JsonProperty("response")]
-		public string Response { get; set; }
 	}
 }
