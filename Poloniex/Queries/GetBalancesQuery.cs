@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
 namespace Poloniex
 {
@@ -21,14 +20,7 @@ namespace Poloniex
 				Symbol = x.Key,
 				Available = x.Value
 			}).ToList();
-		}
+		} 
 		
-		public class AvailableBalance
-		{
-			public String Symbol { get; set; }
-
-			[JsonProperty("available")]
-			public Decimal Available { get; set; }
-		}
 	}
 }

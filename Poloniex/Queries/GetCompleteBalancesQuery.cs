@@ -8,9 +8,9 @@ namespace Poloniex
 {
 	public static class GetCompleteBalancesQuery
 	{
-		public static async Task<IList<CompleteBalance>> GetCompleteBalancesAsync(this PoloniexClient clien)
+		public static async Task<IList<CompleteBalance>> GetCompleteBalancesAsync(this PoloniexClient client)
 		{
-			var response = await clien.SendRequestAsync<Dictionary<String, CompleteBalance>>(new PoloniexRequest
+			var response = await client.SendRequestAsync<Dictionary<String, CompleteBalance>>(new PoloniexRequest
 			{
 				Api = PoloniexApi.Trading,
 				Command = "returnCompleteBalances"
@@ -24,19 +24,6 @@ namespace Poloniex
 			return response.Values.ToList();
 		}
 
-		public class CompleteBalance
-		{
-			[JsonIgnore]
-			public String Symbol { get; set; }
-
-			[JsonProperty("available")]
-			public Decimal Available { get; set; }
-
-			[JsonProperty("onOrder")]
-			public Decimal OnOrder { get; set; }
-
-			[JsonProperty("btcValue")]
-			public Decimal BtcValue { get; set; }
-		}
+		
 	}
 }
