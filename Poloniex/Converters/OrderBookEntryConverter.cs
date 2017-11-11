@@ -19,7 +19,7 @@ namespace Poloniex.Converters
 			throw new NotImplementedException();
 		}
 
-		public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+		public override object ReadJson(JsonReader reader, Type objectType, Object existingValue, JsonSerializer serializer)
 		{
 			if (reader.TokenType != JsonToken.StartArray)
 			{
