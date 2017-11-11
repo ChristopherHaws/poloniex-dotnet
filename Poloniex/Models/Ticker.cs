@@ -37,5 +37,4 @@ namespace Poloniex
 		[JsonProperty("low24hr")]
 		public Decimal Low24hr { get; set; }
 	}
-}
-}
+} 
