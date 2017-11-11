@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Poloniex.Models
+namespace Poloniex
 {
 	public class PoloniexOrder
 	{

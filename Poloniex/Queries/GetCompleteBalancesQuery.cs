@@ -8,9 +8,9 @@ namespace Poloniex
 {
 	public static class GetCompleteBalancesQuery
 	{
-		public static async Task<IList<CompleteBalance>> GetCompleteBalancesAsync(this PoloniexClient clien)
+		public static async Task<IList<CompleteBalance>> GetCompleteBalancesAsync(this PoloniexClient client)
 		{
-			var response = await clien.SendRequestAsync<Dictionary<String, CompleteBalance>>(new PoloniexRequest
+			var response = await client.SendRequestAsync<Dictionary<String, CompleteBalance>>(new PoloniexRequest
 			{
 				Api = PoloniexApi.Trading,
 				Command = "returnCompleteBalances"

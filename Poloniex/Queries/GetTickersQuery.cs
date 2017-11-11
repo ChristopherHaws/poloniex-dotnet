@@ -8,9 +8,9 @@ namespace Poloniex
 {
 	public static class GetTickersQuery
 	{
-		public static async Task<IDictionary<String, Ticker>> GetTickersAsync(this PoloniexClient clien)
+		public static async Task<IDictionary<String, Ticker>> GetTickersAsync(this PoloniexClient client)
 		{
-			return await clien.SendRequestAsync<Dictionary<String, Ticker>>(new PoloniexRequest
+			return await client.SendRequestAsync<Dictionary<String, Ticker>>(new PoloniexRequest
 			{
 				Api = PoloniexApi.Public,
 				Command = "returnTicker"

@@ -40,7 +40,7 @@ namespace Poloniex
 		/// <param name="immediateOrCancel">An immediate-or-cancel order can be partially or completely filled, but any portion of the order that cannot be filled immediately will be canceled rather than left on the order book.</param>
 		/// <param name="postOnly">A post-only order will only be placed if no portion of it fills immediately; this guarantees you will never pay the taker fee on any part of the order that fills.</param>
 		/// <returns></returns>
-		public static async Task<PoloniexOrder> BuyCommandAsync(this PoloniexClient client,  String currencyPair, Decimal rate, Decimal amount, Boolean fillOrKill, Boolean immediateOrCancel, Boolean postOnly)
+		public static async Task<PoloniexOrder> BuyAsync(this PoloniexClient client,  String currencyPair, Decimal rate, Decimal amount, Boolean fillOrKill, Boolean immediateOrCancel, Boolean postOnly)
 		{
 			return await PlaceTradeOrderAsync(client, "buy", currencyPair, rate, amount, fillOrKill, immediateOrCancel, postOnly);
 		}
@@ -54,9 +54,9 @@ namespace Poloniex
 		/// <param name="rate">Rate at which the order should be placed at</param>
 		/// <param name="amount">The amount for which the order should placed</param>
 		/// <returns></returns>
-		public static async Task<PoloniexOrder> BuyCommandAsync(this PoloniexClient client, String currencyPair, Decimal rate, Decimal amount)
+		public static async Task<PoloniexOrder> BuyAsync(this PoloniexClient client, String currencyPair, Decimal rate, Decimal amount)
 		{
-			return await BuyCommandAsync(client, currencyPair, rate, amount, false, false, false);
+			return await BuyAsync(client, currencyPair, rate, amount, false, false, false);
 		}
 
 
@@ -73,7 +73,7 @@ namespace Poloniex
 		/// <param name="immediateOrCancel">An immediate-or-cancel order can be partially or completely filled, but any portion of the order that cannot be filled immediately will be canceled rather than left on the order book.</param>
 		/// <param name="postOnly">A post-only order will only be placed if no portion of it fills immediately; this guarantees you will never pay the taker fee on any part of the order that fills.</param>
 		/// <returns></returns>
-		public static async Task<PoloniexOrder> SellCommandAsync(this PoloniexClient client, String currencyPair, Decimal rate, Decimal amount, Boolean fillOrKill, Boolean immediateOrCancel, Boolean postOnly)
+		public static async Task<PoloniexOrder> SellAsync(this PoloniexClient client, String currencyPair, Decimal rate, Decimal amount, Boolean fillOrKill, Boolean immediateOrCancel, Boolean postOnly)
 		{
 			return await PlaceTradeOrderAsync(client, "sell", currencyPair, rate, amount, fillOrKill, immediateOrCancel, postOnly);
 		}
@@ -87,9 +87,9 @@ namespace Poloniex
 		/// <param name="rate">Rate at which the order should be placed at</param>
 		/// <param name="amount">The amount for which the order should placed</param>
 		/// <returns></returns>
-		public static async Task<PoloniexOrder> SellCommandAsync(this PoloniexClient client, String currencyPair, Decimal rate, Decimal amount)
+		public static async Task<PoloniexOrder> SellAsync(this PoloniexClient client, String currencyPair, Decimal rate, Decimal amount)
 		{
-			return await SellCommandAsync(client, currencyPair, rate, amount, false, false, false);
+			return await SellAsync(client, currencyPair, rate, amount, false, false, false);
 		} 
 
 	}

@@ -12,12 +12,7 @@ namespace Poloniex
 		{
 			Dictionary<String, OpenLoanOffer[]> CustomDeserializer(String value)
 			{
-				if (value == "[]")
-				{
-					return new Dictionary<String, OpenLoanOffer[]>();
-				}
-
-				return JsonConvert.DeserializeObject<Dictionary<String, OpenLoanOffer[]>>(value);
+				return value == "[]" ? new Dictionary<String, OpenLoanOffer[]>() : JsonConvert.DeserializeObject<Dictionary<String, OpenLoanOffer[]>>(value);
 			}
 
 			var response = await client.SendRequestAsync(new PoloniexRequest
