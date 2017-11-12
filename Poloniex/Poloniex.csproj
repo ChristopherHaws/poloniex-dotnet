@@ -14,8 +14,7 @@
     <PackageId>PoloniexExchange</PackageId>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'"> 
     <Year>$([System.DateTime]::Now.ToString(yy))</Year>
     <DayOfYear>$([System.DateTime]::Now.DayOfYear.ToString(000))</DayOfYear>
     <VersionPrefix>1.0.0</VersionPrefix>
