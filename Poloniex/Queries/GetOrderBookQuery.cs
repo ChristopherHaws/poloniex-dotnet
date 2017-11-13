@@ -13,7 +13,7 @@ namespace Poloniex
 				Api = PoloniexApi.Public,
 				Command = "returnOrderBook",
 				Parameters = {
-					{"currencyPair", "BTC_ETH"},
+					{"currencyPair", currencyPair},
 					{"depth", depth.ToString()}
 				}
 			}; 
@@ -27,7 +27,7 @@ namespace Poloniex
 				Api = PoloniexApi.Public,
 				Command = "returnOrderBook",
 				Parameters = {
-					{"currencyPair", "BTC_ETH"} 
+					{"currencyPair", currencyPair} 
 				}
 			};
 			return await client.SendRequestAsync<OrderBook>(request);
