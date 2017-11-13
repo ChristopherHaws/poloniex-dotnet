@@ -1,19 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.4</TargetFramework>
-    <Authors>Christopher.Haws</Authors>
-    <Company>Christopher.Haws</Company>
-    <Description>A .NET implementation for the Poloniex API for exchanging cryptocurrency.</Description>
-    <PackageLicenseUrl>https://github.com/ChristopherHaws/poloniex-dotnet/blob/master/LICENSE.md</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/ChristopherHaws/poloniex-dotnet</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/ChristopherHaws/poloniex-dotnet.git</RepositoryUrl>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>iicaisin1</Authors>
+    <Company></Company>
+    <Description>A .NET implementation for the Poloniex API for exchanging cryptocurrency. This is a forked implementation from https://github.com/ChristopherHaws/poloniex-dotnet.</Description>
+    <PackageLicenseUrl>https://github.com/iicaisin1/poloniex-dotnet/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/iicaisin1/poloniex-dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/iicaisin1/poloniex-dotnet.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>Poloniex Crypto Currency CoinBase BitCoin Ethereum LiteCoin AltCoin Exchange</PackageTags>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageId>PoloniexExchange</PackageId>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'"> 
     <Year>$([System.DateTime]::Now.ToString(yy))</Year>
     <DayOfYear>$([System.DateTime]::Now.DayOfYear.ToString(000))</DayOfYear>
     <VersionPrefix>1.0.0</VersionPrefix>
