@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.4</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Christopher.Haws</Authors>
     <Company>Christopher.Haws</Company>
     <Description>A .NET implementation for the Poloniex API for exchanging cryptocurrency.</Description>

@@ -14,6 +14,11 @@ namespace Poloniex
 			return (dateTime - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds;
 		}
 
+		public static DateTime FromUnixTimestamp(this Double timestamp)
+		{
+			return (new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(timestamp));
+		}
+
 		public static String ToHexString(this Byte[] value)
 		{
 			var hex = new StringBuilder(value.Length * 2);
